@@ -1,38 +1,100 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: system-ui;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
+
 body {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #f0f4ff;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+    overflow: hidden;
 }
-.container {
-  text-align: center;
-  padding: 40px;
-  background: white;
-  border-radius: 16px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+
+/* 动态渐变背景 */
+.bg-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(-45deg, #1a1a2e, #16213e, #0f3460, #203a43);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    z-index: -1;
 }
-h1 {
-  color: #2563eb;
-  margin-bottom: 16px;
+
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
-button {
-  margin-top: 20px;
-  padding: 12px 24px;
-  border: none;
-  background: #2563eb;
-  color: white;
-  border-radius: 8px;
-  cursor: pointer;
+
+/* 主卡片 毛玻璃效果 */
+.card {
+    width: 90%;
+    max-width: 480px;
+    padding: 60px 40px;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 24px;
+    text-align: center;
+    color: #ffffff;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+    transition: transform 0.3s ease;
 }
-#msg {
-  margin-top: 16px;
-  color: #16a34a;
-  font-weight: bold;
+
+.card:hover {
+    transform: translateY(-6px);
+}
+
+/* 装饰图标 */
+.logo-icon {
+    font-size: 48px;
+    color: #81c7ff;
+    margin-bottom: 20px;
+}
+
+.card h1 {
+    font-size: 2.2rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+}
+
+.card p {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 36px;
+    letter-spacing: 1px;
+}
+
+/* 高级按钮 */
+.action-btn {
+    padding: 14px 40px;
+    background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);
+    border: none;
+    border-radius: 50px;
+    color: #fff;
+    font-size: 16px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.action-btn:hover {
+    box-shadow: 0 0 20px rgba(79, 172, 254, 0.6);
+    transform: scale(1.05);
+}
+
+/* 交互提示文字 */
+.feedback {
+    margin-top: 24px;
+    font-size: 15px;
+    color: #a5e9ff;
+    min-height: 20px;
 }
